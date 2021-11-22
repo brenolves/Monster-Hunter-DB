@@ -1,0 +1,175 @@
+body{
+    max-width: 1920px;
+    margin: auto;
+    font-family: 'Raleway', sans-serif;
+    border-right: solid 0.1rem black;
+    background-color: white;
+}
+
+
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+#navbar{
+    float: left;
+    width: 15%;
+    text-align: center;
+    height: 100vh;
+    font-size: 1.5rem;
+    background-color: black;
+    border-right: solid 0.2rem lightskyblue;
+    position: fixed;
+    
+}
+
+
+#navbar a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+#navbar a,
+.normalRow a{
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+#home h1,
+#navbar h2,
+#monsters h2,
+a#home,
+a#monsters{
+    color: lightskyblue;
+}
+
+a#home,
+a#monsters{
+    border-bottom: solid 0.2rem lightskyblue;
+}
+
+
+
+#navbar ul {
+    list-style: none;
+    list-style-position: inside;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    justify-content: space-evenly;
+    margin-bottom: 3rem;
+}
+
+#navbar .divider,
+#monsters .divider{
+    border-bottom: solid 0.2rem lightskyblue;
+}
+
+
+#content{
+    width: 85%;
+    margin-left: auto;
+    color: black;
+    text-align: center;
+}
+
+
+
+#content .divider{
+    border-bottom: solid 0.1rem black;
+}
+
+section#home,
+section#monsters,
+text.notResults {
+    font-size: 2rem;
+}
+
+section#home p,
+section#monsters p {
+    font-size: 1.5rem;
+    padding: 0 2rem 0 2rem;
+}
+
+section#home img {
+    max-height: 600px;
+    margin-top: 2rem;
+}
+
+#table-monsters{
+    text-align: center;
+    padding: 0 0 2rem 2rem;
+}
+
+#table-monsters th {
+    border-bottom: solid 0.2rem black;
+    border-left: solid 0.2rem black;
+    border-right: solid 0.2rem black;
+    background-color: lightskyblue;
+    
+}
+
+#table-monsters td {
+    padding: 1.5rem;
+}
+
+.normalRow td{
+    border: solid 0.1rem black;
+}
+
+.normalRow a{
+    color: black;
+    transition: 0.3s;
+}
+
+.normalRow:hover{
+    background-color: wheat;
+    transition: 0.2s;
+}
+
+.normalRow a:hover,
+#navbar a:hover{
+    color: lightskyblue;
+    transition: 0.3s;
+}
+
+text.notResults{
+    text-align: center;
+    color: black;
+    font-weight: bolder;
+}
+
+
+#Name,
+#Type,
+#Species {
+    cursor:pointer;
+}
+
+
+/* Media Queries */
+
+@media (max-width: 2560px){
+    body{
+        max-width: 2560px;
+    }
+}
+
+@media (max-width: 1366px){
+    body{
+        max-width: 1366px;
+    }
+}
+
+@media (max-width: 1024px){
+    body{
+        max-width: 1024px;
+    }
+}
