@@ -15,14 +15,14 @@ body{
 }
 
 #screenshots.grid{
-    /*grid-template-columns: repeat(2, 1fr);*/
+    grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     width: 100%;
-    margin-bottom: 2rem;
+    margin: 0 0 2rem 2rem;
 }
 
 #screenshots.grid img{
-    width: 66vw;
+    max-width: 40vw;
     height: 100vh;
     border: solid 0.2rem black;
     border-radius: 1rem;
@@ -190,22 +190,7 @@ text.notResults{
 
 }
 
-@media (min-width: 2560px){
-    #screenshots.grid{
-        grid-template-columns: repeat(2, 1fr);
-        justify-content: center;
-        width: 100%;
-        margin: 0 0 2rem 2rem;
-        
-    }
-    
-    #screenshots.grid img{
-        width: 40vw;
-        height: 100vh;
-        border: solid 0.2rem black;
-        border-radius: 1rem;
-    }
-}
+
 
 @media (max-width: 1366px){
     body{
