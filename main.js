@@ -1,8 +1,11 @@
 let monsters = []
 
 monsterTable = document.getElementById("table-monsters");
+screenshots = document.getElementById("screenshots");
 
+addScreenshots();
 searchMonsters();
+
 
 async function searchMonsters(event) {
     monsterTable.innerHTML = `<text class="notResults">Loading...</text>`
@@ -11,6 +14,12 @@ async function searchMonsters(event) {
     let objs = await res.json()
     monsters = objs
     showMonsterTable()
+}
+
+function addScreenshots() {
+    for(i = 1; i <= 6; i++){
+        screenshots.innerHTML += `<img src="/assets/images/screenshots/${i}.jpg" alt="Screenshot#${i}">`
+    }
 }
 
 function assembleMonsterTable(){

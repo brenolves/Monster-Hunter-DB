@@ -1,3 +1,7 @@
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     max-width: 1920px;
     margin: auto;
@@ -5,7 +9,24 @@ body{
     border-right: solid 0.1rem black;
     background-color: white;
 }
+ 
+.grid{
+    display: grid;
+}
 
+#screenshots.grid{
+    /*grid-template-columns: repeat(2, 1fr);*/
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+#screenshots.grid img{
+    width: 66vw;
+    height: 100vh;
+    border: solid 0.2rem black;
+    border-radius: 1rem;
+}
 
 
 .flex-row {
@@ -45,7 +66,8 @@ body{
 #navbar h2,
 #monsters h2,
 a#home,
-a#monsters{
+a#monsters,
+#content h2{
     color: lightskyblue;
 }
 
@@ -69,7 +91,7 @@ a#monsters{
 
 #navbar .divider,
 #monsters .divider{
-    border-bottom: solid 0.2rem lightskyblue;
+    border-bottom: solid 0.1rem lightskyblue;
 }
 
 
@@ -83,7 +105,7 @@ a#monsters{
 
 
 #content .divider{
-    border-bottom: solid 0.1rem black;
+    border-bottom: solid 0.2rem lightskyblue;
 }
 
 section#home,
@@ -109,10 +131,9 @@ section#home img {
 }
 
 #table-monsters th {
-    border-bottom: solid 0.2rem black;
-    border-left: solid 0.2rem black;
-    border-right: solid 0.2rem black;
+    border: solid 0.2rem black;
     background-color: lightskyblue;
+
     
 }
 
@@ -141,7 +162,6 @@ section#home img {
 }
 
 text.notResults{
-    text-align: center;
     color: black;
     font-weight: bolder;
 }
@@ -153,6 +173,13 @@ text.notResults{
     cursor:pointer;
 }
 
+#Name:hover,
+#Type:hover,
+#Species:hover{
+    color: white;
+    transition: 0.2s;
+}
+
 
 /* Media Queries */
 
@@ -160,16 +187,42 @@ text.notResults{
     body{
         max-width: 2560px;
     }
+
+}
+
+@media (min-width: 2560px){
+    #screenshots.grid{
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+        width: 100%;
+        margin: 0 0 2rem 2rem;
+        
+    }
+    
+    #screenshots.grid img{
+        width: 40vw;
+        height: 100vh;
+        border: solid 0.2rem black;
+        border-radius: 1rem;
+    }
 }
 
 @media (max-width: 1366px){
     body{
         max-width: 1366px;
     }
+
+    #navbar h2 {
+        font-size: 1.8rem;
+    }
 }
 
 @media (max-width: 1024px){
     body{
         max-width: 1024px;
+    }
+
+    #navbar h2 {
+        font-size: 1.5rem;
     }
 }
