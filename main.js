@@ -3,8 +3,6 @@ let monsters = []
 monsterTable = document.getElementById("table-monsters");
 screenshots = document.getElementById("screenshots");
 
-addScreenshots();
-searchMonsters();
 
 
 async function searchMonsters(event) {
