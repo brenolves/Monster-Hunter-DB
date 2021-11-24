@@ -56,7 +56,7 @@ async function searchWeapons(event) {
 
     weaponTable.innerHTML = `<text class="notResults">Loading...</text>`
     //let url = "https://mhw-db.com/weapons"
-    res = await fetch(`http://mhw-db.com/weapons?q={"name":{"$like": "%${key}%"}}`)
+    res = await fetch(`https://mhw-db.com/weapons?q={"name":{"$like": "%${key}%"}}`)
     let objs = await res.json()
 
     weapons = objs
