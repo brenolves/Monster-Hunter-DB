@@ -18,13 +18,13 @@ body{
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     width: 100%;
-    margin: 0 0 2rem 2rem;
+    padding: 0 0 2rem 2rem;
 }
 
 #screenshots.grid img{
     max-width: 40vw;
     height: 100vh;
-    border: solid 0.2rem black;
+    border: solid 0.3rem  smooth;
     border-radius: 1rem;
 }
 
@@ -67,12 +67,14 @@ body{
 #monsters h2,
 a#home,
 a#monsters,
+a#weapons,
 #content h2{
     color: lightskyblue;
 }
 
 a#home,
-a#monsters{
+a#monsters,
+a#weapons{
     border-bottom: solid 0.2rem lightskyblue;
 }
 
@@ -110,6 +112,7 @@ a#monsters{
 
 section#home,
 section#monsters,
+section#weapons,
 text.notResults {
     font-size: 2rem;
 }
@@ -125,19 +128,22 @@ section#home img {
     margin-top: 2rem;
 }
 
-#table-monsters{
+#table-monsters,
+#table-weapons{
     text-align: center;
     padding: 0 0 2rem 2rem;
 }
 
-#table-monsters th {
+#table-monsters th,
+#table-weapons th {
     border: solid 0.2rem black;
     background-color: lightskyblue;
 
     
 }
 
-#table-monsters td {
+#table-monsters td,
+#table-weapons td {
     padding: 1.5rem;
 }
 
@@ -169,7 +175,8 @@ text.notResults{
 
 #Name,
 #Type,
-#Species {
+#Species,
+#searchButton {
     cursor:pointer;
 }
 
@@ -180,6 +187,49 @@ text.notResults{
     transition: 0.2s;
 }
 
+#table-weapons,
+#table-monsters {
+    width: 83vw;
+}
+
+#weaponSearchDiv{
+    margin: 0 2rem 0 2rem;
+}
+
+#weaponSearchbar{
+    width: 80vw;
+    height: 2rem;
+    font-size: 1.4rem;
+    font-weight: bolder;
+    border-radius: 2rem;
+    padding: 0.5rem 0 0.5rem 1rem;
+    text-transform:uppercase;
+    margin: 1rem 0.5rem 1rem 0;
+
+}
+
+#searchButton,
+#weaponSearchbar {
+    font-size: 1.4rem;
+    font-weight: bolder;
+    border-radius: 2rem;
+    padding: 0.5rem 0 0.5rem 1rem;
+    text-transform:uppercase;
+    margin-top: 1rem;
+}
+
+button#searchButton {
+    background-color: lightskyblue;
+    padding: 0.5rem;
+    height: fit-content;
+    width: fit-content;
+    transition: 0.3s;
+}
+
+button#searchButton:hover{
+    color: white;
+    transition: 0.3s;
+}
 
 /* Media Queries */
 

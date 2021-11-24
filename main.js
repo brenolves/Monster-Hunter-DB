@@ -1,9 +1,18 @@
 let monsters = []
+let weapons = []
 
 monsterTable = document.getElementById("table-monsters");
+weaponTable = document.getElementById("table-weapons");
 screenshots = document.getElementById("screenshots");
 
 
+
+
+function addScreenshots() {
+    for(i = 1; i <= 6; i++){
+        screenshots.innerHTML += `<img src="/assets/images/screenshots/${i}.jpg" alt="Screenshot#${i}">`
+    }
+}
 
 async function searchMonsters(event) {
     monsterTable.innerHTML = `<text class="notResults">Loading...</text>`
@@ -12,12 +21,6 @@ async function searchMonsters(event) {
     let objs = await res.json()
     monsters = objs
     showMonsterTable()
-}
-
-function addScreenshots() {
-    for(i = 1; i <= 6; i++){
-        screenshots.innerHTML += `<img src="/assets/images/screenshots/${i}.jpg" alt="Screenshot#${i}">`
-    }
 }
 
 function assembleMonsterTable(){
@@ -43,6 +46,44 @@ function showMonsterTable(){
         ${assembleMonsterTable().join('\n')}`;
 }
 
+async function searchWeapons(event) {
+    event.preventDefault();
+    let key = document.getElementById('weaponSearchbar').value
+
+    if (key.length < 3) {
+        return alert("Input more than 3 characters!");
+    }
+
+    weaponTable.innerHTML = `<text class="notResults">Loading...</text>`
+    //let url = "https://mhw-db.com/weapons"
+    res = await fetch(`http://mhw-db.com/weapons?q={"name":{"$like": "%${key}%"}}`)
+    let objs = await res.json()
+
+    weapons = objs
+    showWeaponTable()
+}
+
+
+function assembleWeaponTable(){
+    return weapons.map(f => 
+        `<tr class ="normalRow">
+            <td><a href="https://monsterhunter.fandom.com/wiki/${f.name}_(MHW)" target="blank">${f.name}</a></td>
+            <td>${f.type}</td>
+            <td>${f.damageType}</td>
+        </tr>`)
+}
+
+
+function showWeaponTable(){
+    weaponTable.innerHTML = `<tr id="thRow">
+            <th id="Name" onclick="sortByTitle()">Name</th>
+            <th id="Type" onclick="sortByType()">Type</th>
+            <th id="Species" onclick="sortBySpecies()">Species</th> 
+        </tr>
+        ${assembleWeaponTable().join('\n')}`;
+}
+
+
 //Função para deixar a primeira letra de uma string em maiúsculo.
 //Função tirada do StackOverflow, Link -> https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript
 Object.defineProperty(String.prototype, 'capitalize', {
@@ -51,6 +92,8 @@ Object.defineProperty(String.prototype, 'capitalize', {
     },
     enumerable: false
   });
+
+
 
 // Ordenações
 
