@@ -60,7 +60,13 @@ async function searchWeapons(event) {
     let objs = await res.json()
 
     weapons = objs
-    showWeaponTable()
+    
+    if (weapons == 0) {
+        return weaponTable.innerHTML = `<tr><td>No Results</td></tr>`;
+    } else{
+        return showWeaponTable();
+    }
+
 }
 
 
@@ -68,8 +74,8 @@ function assembleWeaponTable(){
     return weapons.map(f => 
         `<tr class ="normalRow">
             <td><a href="https://monsterhunter.fandom.com/wiki/${f.name}_(MHW)" target="blank">${f.name}</a></td>
-            <td>${f.type}</td>
-            <td>${f.damageType}</td>
+            <td>${f.type.capitalize()}</td>
+            <td>${f.damageType.capitalize()}</td>
         </tr>`)
 }
 
@@ -78,7 +84,7 @@ function showWeaponTable(){
     weaponTable.innerHTML = `<tr id="thRow">
             <th id="Name" onclick="sortByTitle()">Name</th>
             <th id="Type" onclick="sortByType()">Type</th>
-            <th id="Species" onclick="sortBySpecies()">Species</th> 
+            <th id="damageType" onclick="sortBySpecies()">Damage Type</th> 
         </tr>
         ${assembleWeaponTable().join('\n')}`;
 }
