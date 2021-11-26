@@ -15,12 +15,19 @@ function addScreenshots() {
 }
 
 async function searchMonsters(event) {
+    event.preventDefault();
     monsterTable.innerHTML = `<text class="notResults">Loading...</text>`
-    let url = "https://mhw-db.com/monsters"
+    let key = document.getElementById('monsterSearchbar').value 
+    let url = `https://mhw-db.com/monsters?q={"name":{"$like": "%${key}%"}}`
     let res = await fetch(url)
     let objs = await res.json()
     monsters = objs
-    showMonsterTable()
+
+    if (monsters == 0) {
+        return monsterTable.innerHTML = `<tr><td>No Results</td></tr>`;
+    } else{
+        return showMonsterTable();
+    }
 }
 
 function assembleMonsterTable(){

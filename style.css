@@ -196,7 +196,8 @@ text.notResults{
     margin: 0 2rem 0 2rem;
 }
 
-#weaponSearchbar{
+#weaponSearchbar,
+#monsterSearchbar{
     width: 80vw;
     height: 2rem;
     font-size: 1.4rem;
