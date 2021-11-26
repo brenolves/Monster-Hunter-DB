@@ -17,7 +17,10 @@ function addScreenshots() {
 async function searchMonsters(event) {
     event.preventDefault();
     monsterTable.innerHTML = `<text class="notResults">Loading...</text>`
-    let key = document.getElementById('monsterSearchbar').value 
+    let key = document.getElementById('monsterSearchbar').value
+    if (key.length < 3) {
+        return monsterTable.innerHTML = `<text class="notResults">Input at least 3 characters!</text>`
+    }
     let url = `https://mhw-db.com/monsters?q={"name":{"$like": "%${key}%"}}`
     let res = await fetch(url)
     let objs = await res.json()
