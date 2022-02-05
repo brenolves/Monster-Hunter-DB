@@ -15,3 +15,7 @@ As abas são:
 
 A tabela, após construída, exibirá as informações com base no que foi pesquisado, e ao clicar no nome de cada linha, será redirecionado
 ao site da wiki do jogo, onde terá acesso a todas as informações.
+
+<h3><b>Tarefas</b></h3>
+<b>-[Tarefa 1](docs/tarefa1.md)</b>
+<b>-[Tarefa 2 em diante](docs/resto.md)</b>
