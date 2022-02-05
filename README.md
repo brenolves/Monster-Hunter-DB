@@ -1,3 +1,5 @@
+<h2><b>Estória de Usuário</b></h2>
+
 João é um jogador de Monster Hunter World que deseja consultar a variedade de coisas que o jogo oferece,
 entre elas Armas, Monstros, Itens, entre outros.
 
