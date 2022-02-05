@@ -17,6 +17,6 @@ A tabela, após construída, exibirá as informações com base no que foi pesqu
 ao site da wiki do jogo, onde terá acesso a todas as informações.
 
 <h3><b>Tarefas</b></h3>
--[<b>Tarefa 1</b>](/docs/tarefa1.md)
+- [Tarefa 1](/docs/tarefa1.md)
 <br>
--[<b>Tarefa 2 em diante</b>](/docs/resto.md)
+- [Tarefa 2 em diante](/docs/resto.md)
