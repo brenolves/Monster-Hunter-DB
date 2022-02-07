@@ -68,13 +68,15 @@ body{
 a#home,
 a#monsters,
 a#weapons,
+a#locations,
 #content h2{
     color: lightskyblue;
 }
 
 a#home,
 a#monsters,
-a#weapons{
+a#weapons,
+a#locations{
     border-bottom: solid 0.2rem lightskyblue;
 }
 
@@ -113,12 +115,14 @@ a#weapons{
 section#home,
 section#monsters,
 section#weapons,
+section#locations,
 text.notResults {
     font-size: 2rem;
 }
 
 section#home p,
-section#monsters p {
+section#monsters p,
+section#locations p {
     font-size: 1.5rem;
     padding: 0 2rem 0 2rem;
 }
@@ -129,13 +133,15 @@ section#home img {
 }
 
 #table-monsters,
-#table-weapons{
+#table-weapons,
+#table-locations{
     text-align: center;
     padding: 0 0 2rem 2rem;
 }
 
 #table-monsters th,
-#table-weapons th {
+#table-weapons th,
+#table-locations th {
     border: solid 0.2rem black;
     background-color: lightskyblue;
 
@@ -143,7 +149,8 @@ section#home img {
 }
 
 #table-monsters td,
-#table-weapons td {
+#table-weapons td,
+#table-locations td {
     padding: 1.5rem;
 }
 
@@ -188,16 +195,20 @@ text.notResults{
 }
 
 #table-weapons,
-#table-monsters {
+#table-monsters,
+#table-locations,
+#table-items {
     width: 83vw;
 }
 
-#weaponSearchDiv{
+#weaponSearchDiv,
+#locationSearchDiv{
     margin: 0 2rem 0 2rem;
 }
 
 #weaponSearchbar,
-#monsterSearchbar{
+#monsterSearchbar,
+#locationSearchbar{
     width: 80vw;
     height: 2rem;
     font-size: 1.4rem;
@@ -210,7 +221,8 @@ text.notResults{
 }
 
 #searchButton,
-#weaponSearchbar {
+#weaponSearchbar,
+#locationSearchbar {
     font-size: 1.4rem;
     font-weight: bolder;
     border-radius: 2rem;

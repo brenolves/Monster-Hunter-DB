@@ -20,24 +20,21 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="monsters.html">Monsters</a></li>
-                <li><a id="weapons" href="#">Weapons</a></li>
-                <li><a href="locations.html">Locations</a></li>
+                <li><a href="weapons.html">Weapons</a></li>
+                <li><a id="locations" href="#">Locations</a></li>
                 <li><a href="#">Items</a></li>
             </ul>
         </nav>
         <div id="content" class="flex">
-            <section id="weapons">
+            <section id="locations">
                 <div class="header">
-                    <h2>Weapons</h2>
+                    <h2>Locations</h2>
                     <div class="divider"></div>      
                 </div>
-                <div class="flex-row" id="weaponSearchDiv">
-                    <input type="text" placeholder="SEARCH FOR WEAPONS HERE ->  Examples: Buster Sword, Chrome Razor, Iron Katana..." name="weaponSearchbar" id="weaponSearchbar">
-                    <button id="searchButton" onclick="searchWeapons(event)">
-                        Search
-                    </button>
+                <div class="flex-row" id="locationSearchDiv">
+                    <input type="text" oninput=searchLocations(event) placeholder="SEARCH FOR LOCATIONS HERE ->  Examples: Ancient Forest, Elder's Recess..." name="locationSearchbar" id="locationSearchbar">
                 </div>
-                <table id="table-weapons">
+                <table id="table-locations">
 
                     <tbody>
                         
@@ -48,5 +45,8 @@
     </div>
 
     <script src="main.js"></script>
+    <script>
+        getLocations()
+    </script>
 </body>
 </html>

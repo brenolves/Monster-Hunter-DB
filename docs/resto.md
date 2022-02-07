@@ -5,5 +5,5 @@ Na barra de pesquisa, insira o nome do objeto desejado, com base na aba escolhid
 <b>Progresso</b>:
 - Monsters (completa)
 - Weapons (completa)
-- Locations (incompleta)
+- Locations (completa)
 - Items (incompleta)

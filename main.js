@@ -1,10 +1,22 @@
 let monsters = []
 let weapons = []
+let locations = []
+let newLocations = []
 
 monsterTable = document.getElementById("table-monsters");
 weaponTable = document.getElementById("table-weapons");
+locationTable = document.getElementById("table-locations");
 screenshots = document.getElementById("screenshots");
 
+
+//Função para deixar a primeira letra de uma string em maiúsculo.
+//Função tirada do StackOverflow, Link -> https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript
+Object.defineProperty(String.prototype, 'capitalize', {
+    value: function() {
+      return this.charAt(0).toUpperCase() + this.slice(1);
+    },
+    enumerable: false
+  });
 
 
 
@@ -99,15 +111,64 @@ function showWeaponTable(){
         ${assembleWeaponTable().join('\n')}`;
 }
 
+async function getLocations() {
+    let url = 'https://mhw-db.com/locations'
+    let res = await fetch(url)
+    let objs = await res.json()
+    locations = objs
 
-//Função para deixar a primeira letra de uma string em maiúsculo.
-//Função tirada do StackOverflow, Link -> https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript
-Object.defineProperty(String.prototype, 'capitalize', {
-    value: function() {
-      return this.charAt(0).toUpperCase() + this.slice(1);
-    },
-    enumerable: false
-  });
+    return showLocationTable1();
+}
+
+async function searchLocations(event) {
+    event.preventDefault();
+    let key = document.getElementById('locationSearchbar').value
+
+    newLocations = locations.filter(location => location.name.toUpperCase().includes(key.toUpperCase()))
+
+    if (key.length == 0) {
+        return showLocationTable1();
+    }
+
+    if (locations == 0) {
+        return locationTable.innerHTML = `<tr><td>No Results</td></tr>`;
+    } else{
+        return showLocationTable2();
+    }
+}
+
+function assembleLocationTable1(){
+    return locations.map(f => 
+        `<tr class ="normalRow">
+            <td><a href="https://monsterhunter.fandom.com/wiki/${f.name}" target="blank">${f.name}</a></td>
+            <td>${f.zoneCount}</td>
+        </tr>`)
+}
+
+function assembleLocationTable2(){
+    return newLocations.map(f => 
+        `<tr class ="normalRow">
+            <td><a href="https://monsterhunter.fandom.com/wiki/${f.name}" target="blank">${f.name}</a></td>
+            <td>${f.zoneCount}</td>
+        </tr>`)
+}
+
+function showLocationTable1(){
+    locationTable.innerHTML = `<tr id="thRow">
+            <th id="Name" onclick="sortByTitle()">Name</th>
+            <th id="zoneNumber" onclick="sortByType()">Nº of zones</th>
+        </tr>
+        ${assembleLocationTable1().join('\n')}`;
+}
+
+function showLocationTable2(){
+    locationTable.innerHTML = `<tr id="thRow">
+            <th id="Name" onclick="sortByTitle()">Name</th>
+            <th id="zoneNumber" onclick="sortByType()">Nº of zones</th>
+        </tr>
+        ${assembleLocationTable2().join('\n')}`;
+}
+
 
 
 
