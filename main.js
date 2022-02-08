@@ -2,10 +2,13 @@ let monsters = []
 let weapons = []
 let locations = []
 let newLocations = []
+let items = []
+let newItems = []
 
 monsterTable = document.getElementById("table-monsters");
 weaponTable = document.getElementById("table-weapons");
 locationTable = document.getElementById("table-locations");
+itemTable = document.getElementById("table-items");
 screenshots = document.getElementById("screenshots");
 
 
@@ -16,15 +19,17 @@ Object.defineProperty(String.prototype, 'capitalize', {
       return this.charAt(0).toUpperCase() + this.slice(1);
     },
     enumerable: false
-  });
+});
 
-
+// Home
 
 function addScreenshots() {
     for(i = 1; i <= 6; i++){
         screenshots.innerHTML += `<img src="/assets/images/screenshots/${i}.jpg" alt="Screenshot#${i}">`
     }
 }
+
+// Monsters
 
 async function searchMonsters(event) {
     event.preventDefault();
@@ -68,6 +73,8 @@ function showMonsterTable(){
         ${assembleMonsterTable().join('\n')}`;
 }
 
+// Weapons
+
 async function searchWeapons(event) {
     event.preventDefault();
     let key = document.getElementById('weaponSearchbar').value
@@ -110,6 +117,8 @@ function showWeaponTable(){
         </tr>
         ${assembleWeaponTable().join('\n')}`;
 }
+
+// Locations
 
 async function getLocations() {
     let url = 'https://mhw-db.com/locations'
@@ -169,8 +178,60 @@ function showLocationTable2(){
         ${assembleLocationTable2().join('\n')}`;
 }
 
+// Items
+async function getItems() {
+    let url = 'https://mhw-db.com/items'
+    let res = await fetch(url)
+    let objs = await res.json()
+    items = objs
+
+    searchItems();
+}
 
 
+async function searchItems(event) {
+    event.preventDefault();
+    let key = document.getElementById('itemSearchbar').value
+
+    let rar = document.getElementById('itemRarity');
+    var value = rar.options[rar.selectedIndex].value;
+
+    if (key.length == 0) {
+        newItems = items.filter(item => item.rarity == value);
+        if (newItems == 0) {
+            return itemTable.innerHTML = `<tr><td>No Results</td></tr>`;
+        } else{
+            return showItemTable();
+        }
+    }
+
+    newItems = items.filter(item => item.name.toUpperCase().includes(key.toUpperCase()) && item.rarity == value)
+
+    if (newItems == 0) {
+        return itemTable.innerHTML = `<tr><td>No Results</td></tr>`;
+    } else{
+        return showItemTable();
+    }
+
+}
+
+function assembleItemTable(){
+    return newItems.map(f => 
+        `<tr class ="normalRow">
+            <td>${f.name}</td>
+            <td>${f.description}</td>
+            <td>${f.rarity}</td>
+        </tr>`)
+}
+
+function showItemTable(){
+    itemTable.innerHTML = `<tr id="thRow">
+            <th id="Name">Name</th>
+            <th id="Description">Description</th>
+            <th id="Rarity">Rarity</th>
+        </tr>
+        ${assembleItemTable().join('\n')}`;
+}
 
 // Ordenações
 

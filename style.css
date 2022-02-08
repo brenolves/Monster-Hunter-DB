@@ -69,6 +69,7 @@ a#home,
 a#monsters,
 a#weapons,
 a#locations,
+a#items,
 #content h2{
     color: lightskyblue;
 }
@@ -76,7 +77,8 @@ a#locations,
 a#home,
 a#monsters,
 a#weapons,
-a#locations{
+a#locations,
+a#items{
     border-bottom: solid 0.2rem lightskyblue;
 }
 
@@ -116,13 +118,15 @@ section#home,
 section#monsters,
 section#weapons,
 section#locations,
+section#items,
 text.notResults {
     font-size: 2rem;
 }
 
 section#home p,
 section#monsters p,
-section#locations p {
+section#locations p,
+section#items p {
     font-size: 1.5rem;
     padding: 0 2rem 0 2rem;
 }
@@ -134,14 +138,16 @@ section#home img {
 
 #table-monsters,
 #table-weapons,
-#table-locations{
+#table-locations,
+#table-items{
     text-align: center;
     padding: 0 0 2rem 2rem;
 }
 
 #table-monsters th,
 #table-weapons th,
-#table-locations th {
+#table-locations th,
+#table-items th {
     border: solid 0.2rem black;
     background-color: lightskyblue;
 
@@ -150,7 +156,8 @@ section#home img {
 
 #table-monsters td,
 #table-weapons td,
-#table-locations td {
+#table-locations td,
+#table-items td {
     padding: 1.5rem;
 }
 
@@ -179,21 +186,6 @@ text.notResults{
     font-weight: bolder;
 }
 
-
-#Name,
-#Type,
-#Species,
-#searchButton {
-    cursor:pointer;
-}
-
-#Name:hover,
-#Type:hover,
-#Species:hover{
-    color: white;
-    transition: 0.2s;
-}
-
 #table-weapons,
 #table-monsters,
 #table-locations,
@@ -202,13 +194,16 @@ text.notResults{
 }
 
 #weaponSearchDiv,
-#locationSearchDiv{
+#locationSearchDiv,
+#itemSearchDiv{
     margin: 0 2rem 0 2rem;
 }
 
+
 #weaponSearchbar,
 #monsterSearchbar,
-#locationSearchbar{
+#locationSearchbar,
+#itemSearchbar{
     width: 80vw;
     height: 2rem;
     font-size: 1.4rem;
@@ -220,9 +215,21 @@ text.notResults{
 
 }
 
+#itemRarity {
+    height: 3rem;
+    width: 10rem;
+    margin-top: 1.2rem;
+    font-size: 1.4rem;
+    font-weight: bolder;
+    border-radius: 2rem;
+    padding-left: 3rem;
+    border: 1.8px solid black;
+}
+
 #searchButton,
 #weaponSearchbar,
-#locationSearchbar {
+#locationSearchbar,
+#itemSearchbar {
     font-size: 1.4rem;
     font-weight: bolder;
     border-radius: 2rem;
